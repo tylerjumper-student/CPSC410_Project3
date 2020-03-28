@@ -6,6 +6,7 @@
  */
 
 #include "print_ts.h"
+#include "tester.h"
 #include<thread>
 #include <mutex>
 #include <iostream>
@@ -17,10 +18,8 @@ mutex m;
 //when I run this an abort error occurs, debug and you will see the problem I can look it up online tomorrow
 
 void PRINT1(std::string& txt) {
-	//when I print &txt it prints the address and the threads work very well and all take turns with the mutex. 
-	//need to find how to make it print the string value. 
 	m.lock();
-	cout << txt << endl;
+	cout << txt <<endl;
 	m.unlock();
 }
 void PRINT2(std::string& txt, std::string& txt1) {

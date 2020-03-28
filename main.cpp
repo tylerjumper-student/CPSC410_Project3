@@ -8,14 +8,16 @@
 #include "tester.h"
 #include "print_ts.h"
 
+using namespace std;
+
 
 
 int main() {
-	std::string a = "hello";
-	int numThrd = 4;
-	int timestoPrnt = 1;
+	string a = "hello";
+	int numThrd = 2;
+	int timestoPrnt = 5;
 	int millSecDely = 200;
 	
-	startThreads(a, numThrd, P1, timestoPrnt, millSecDely);
+	startThreads(a, numThrd, P4, timestoPrnt, millSecDely);
 	return 0;
 }
