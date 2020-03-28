@@ -14,10 +14,10 @@ using namespace std;
 
 int main() {
 	string a = "hello";
-	int numThrd = 2;
+	int numThrd = 3;
 	int timestoPrnt = 5;
 	int millSecDely = 200;
 	
 	startThreads(a, numThrd, P4, timestoPrnt, millSecDely);
 	return 0;
-}
+ }
