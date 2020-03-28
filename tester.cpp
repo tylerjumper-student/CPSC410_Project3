@@ -16,7 +16,8 @@
 
 using namespace std;
 
-int numPrints = 0;
+
+static int numPrints = 0;
 vector<thread> threads;
 
 /*
@@ -24,34 +25,39 @@ vector<thread> threads;
  */
 void helperPrintMethod(std::string str, WHICH_PRINT wp, int printTimes, int ms_delay, int timesPrinted) {
 
-    while (timesPrinted <= printTimes) {
+    while (timesPrinted < printTimes) {
         switch (wp)
         {
         case P1:
             PRINT1(str);
-            this_thread::sleep_for(chrono::milliseconds(ms_delay));	//will be millisecond_delay
+            timesPrinted++;
+            this_thread::sleep_for(chrono::milliseconds(ms_delay));	
             break;
         case P2:
             PRINT2(str, str);
-            this_thread::sleep_for(chrono::milliseconds(ms_delay));	//will be millisecond_delay
+            timesPrinted++;
+            this_thread::sleep_for(chrono::milliseconds(ms_delay));	
             break;
         case P3:
             PRINT3(str, str, str);
-            this_thread::sleep_for(chrono::milliseconds(ms_delay));	//will be millisecond_delay
+            timesPrinted++;
+            this_thread::sleep_for(chrono::milliseconds(ms_delay));	
             break;
         case P4:
             PRINT4(str, str, str, str);
-            this_thread::sleep_for(chrono::milliseconds(ms_delay));	//will be millisecond_delay
+            timesPrinted++;
+            this_thread::sleep_for(std::chrono::milliseconds(ms_delay));	//****problem occurs here
             break;
         case P5:
             PRINT5(str, str, str, str, str);
-            this_thread::sleep_for(chrono::milliseconds(ms_delay));	//will be millisecond_delay
+            timesPrinted++;
+            this_thread::sleep_for(std::chrono::milliseconds(ms_delay));	
             break;
         default:
             cout << "Error please check which print method you selected" << endl;
             break;
         }
-        timesPrinted++;
+        
     }
 
 }
